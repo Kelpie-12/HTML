@@ -1,0 +1,47 @@
+﻿body {
+}
+
+#one-one {
+    color: black;
+    list-style: lower-alpha;
+}
+
+#two-one {
+    color: black;
+    list-style: lower-alpha;
+}
+
+#three-two {
+    color: black;
+    list-style: lower-alpha;
+}
+
+#three-four {
+    list-style-image: url('images/orange_marker.png');
+}
+
+#three-five {
+    list-style-image: url('images/green_marker.png');
+}
+
+#four-one {
+    color: black;
+    list-style: lower-alpha;
+}
+
+#five-one {
+    color: black;
+    list-style: lower-alpha;
+}
+
+#five-two {
+    list-style-image: url('images/red_marker.png');
+}
+
+#five-three {
+    list-style-image: url('images/blue_marker.png');
+}
+
+#five-four {
+    list-style-image: url('images/black_marker.png');
+}

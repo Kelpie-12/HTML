@@ -1,26 +1,43 @@
-﻿body
-{
+﻿body {
 }
-.number
-{
-    text-align:right;
+
+.number {
+    text-align: right;
 }
-.rotate
-{    
-    transform:rotate(270deg);
+
+.rotate {
+    transform: rotate(270deg);
 }
-.bord{
-   background-color:antiquewhite;
+
+.bord {
+    background-color: antiquewhite;
 }
-.gas{
-    background-color:deeppink;
+
+.gas {
+    background-color: deeppink;
 }
+
+    .gas:hover {
+        border: solid 3px;
+    }
+
 .elem {
-    background-color:goldenrod
+    background-color: goldenrod
 }
-.met{
-    background-color:cornflowerblue
+
+    .elem:hover {
+        border: solid 3px;
+    }
+.met {
+    background-color: cornflowerblue
 }
-.lan{
-    background-color:olivedrab
+
+    .met:hover {
+        border: solid 3px;
+    }
+.lan {
+    background-color: olivedrab
 }
+    .lan:hover {
+        border: solid 3px;
+    }

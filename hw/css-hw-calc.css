@@ -136,7 +136,7 @@ html, body {
 
 .display-buttons > button {
     /*width: 128px;*/
-    width: 108px;
+    width: 96px;
     color: red;
     margin: 8px 5px;
 }
@@ -160,7 +160,7 @@ html, body {
 .buttons {
     display: flex;
     flex-direction: row;
-    border: solid 1px;
+   /* border: solid 1px;*/
 }
 
 #operations {
@@ -170,14 +170,14 @@ html, body {
     grid-template-columns: 54px 54px 54px;
     grid-gap: 10px;*/
     /*margin: 10px 5px;*/
-    padding: 5px;
-    border: solid 1px;
+    /*padding: 5px;*/
+    /*border: solid 1px;*/
 }
 
     #operations > button {
         width: 54px;
         height: 44px;
-        margin: 4px 4px;
+        margin: 5px 5px;
         color: red;
     }
 
@@ -188,8 +188,9 @@ html, body {
     grid-template-columns: 54px 54px 54px;
     grid-gap: 10px;
     /*margin: 10px 5px;*/
+    margin-left:22px;
     padding: 5px;
-    border: solid 1px;
+    /*border: solid 1px;*/
 }
 
     #digits > button {

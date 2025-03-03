@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata";
+        }
+
+        .bgimage {
+            background-position: center;
+            background-size: cover;
+            background-image:url("ima.jpg");
+            min-height: 75%;
+        }
+
+        .menu {
+            display: none;
+        }
+    </style>
+    <title>W3</title>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
+            <div class="w3-col s3"><a href="#" class="w3-button       w3-block w3-black ">Home</a></div>
+            <div class="w3-col s3"><a href="#about" class="w3-button  w3-block w3-black ">About</a></div>
+            <div class="w3-col s3"><a href="#menu" class="w3-button   w3-block w3-black ">Menu</a></div>
+            <div class="w3-col s3"><a href="#where" class="w3-button  w3-block w3-black ">Where</a></div>
+        </div>
+    </div>
+    <header class="bgimage w3-display-container w3-grayscale-min" id="home">
+        <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small"><span class="w3-tag">Working hours from 8am to 8pm</span></div>
+        <div class="w3-display-middle w3-center"><span class="w3-text-white" style="font-size:90px">Cafe</span></div>
+        <div class="w3-display-bottomright w3-center w3-padding-large"><span class="w3-text-white">8 Lenina street </span></div>
+    </header>
+    <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CAFE</span></h5>
+            <p>
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Posuere auctor curabitur aptent eleifend curae ipsum proin? Sociosqu nullam dictum condimentum sagittis pulvinar habitasse. Justo cursus elit quam blandit porta quisque ultricies. Tellus taciti phasellus pretium luctus scelerisque. Libero efficitur molestie suscipit quisque, ultrices mattis maecenas. Volutpat hendrerit orci ex habitasse cubilia ex rhoncus.
+            </p>
+            <div class="w3-panel w3-leftbar w3-light-grey">
+                <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
+                <p>Chef, Coffeeist and Owner: Liam Brown</p>
+            </div>
+            <p>Venenatis ultricies iaculis elit suscipit odio etiam. Odio nostra turpis vitae sed viverra class praesent sapien vehicula. Hendrerit efficitur erat sociosqu purus in curae sed. Vitae consectetur dapibus inceptos turpis facilisi parturient. Eu mus dolor platea pretium ipsum nulla netus maximus ridiculus. Suscipit porta scelerisque massa dis rhoncus euismod cras tellus. Sollicitudin morbi non neque finibus arcu dictumst ad.</p>
+
+        </div>
+    </div>
+
+    <div class="w3-container" id="menu">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+            <div class="w3-row w3-center w3-card w3-padding">
+                <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+                    <div class="w3-col s6 tablink">Eat</div>
+                </a>
+                <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+                    <div class="w3-col s6 tablink">Drink</div>
+                </a>
+            </div>
+            <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+                <h5>Bread Basket</h5>
+                <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+
+                <h5>Honey Almond Granola with Fruits</h5>
+                <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+
+                <h5>Belgian Waffle</h5>
+                <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+
+                <h5>Scrambled eggs</h5>
+                <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+
+                <h5>Blueberry Pancakes</h5>
+                <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+            </div>
+
+            <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+                <h5>Coffee</h5>
+                <p class="w3-text-grey">Regular coffee 2.50</p><br>
+
+                <h5>Chocolato</h5>
+                <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
+
+                <h5>Corretto</h5>
+                <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
+
+                <h5>Iced tea</h5>
+                <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
+
+                <h5>Soda</h5>
+                <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        // Tabbed Menu
+        function openMenu(evt, menuName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("menu");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+            }
+            document.getElementById(menuName).style.display = "block";
+            evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+        }
+        document.getElementById("myLink").click();
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css-07-js.css" />
+    <title>DataTypes</title>
+</head>
+<body>
+    <h1>DataTypes</h1>
+    <ol>
+        <li>
+            Логические типы
+            <ul>
+                <li>Boolean</li>
+            </ul>
+        </li>
+        <li>
+            Числовые типы
+            <ul>
+                <li>Number - дробное число размером 8 байт</li>
+                <li>Bigint - целое число, поддерживающие длинную арифметику</li>
+            </ul>
+        </li>
+        <li>
+            Символьные типы
+            <ul>
+                <li>Symbol</li>
+            </ul>
+        </li>
+        <li>
+            Ссылочные типы
+            <ul>
+                <li>String</li>
+                <li>Object</li>
+                <li>Null</li>
+            </ul>
+        </li>
+        <li>
+            Undefided
+        </li>
+    </ol>
+    <h2>Opertors</h2>
+    <ol>
+        <li>
+            Унарные:
+            <ul>
+                <li>-</li>
+                <li>--/++</li>
+            </ul>
+        </li>
+        <li>Бинарные
+            <ul>
+                <li>+</li>
+                <li>-</li>
+                <li>*</li>
+                <li>/</li>
+                <li>%</li>
+                <li>**</li>
+                <li>*=,+=,-=,/=,%=</li>
+            </ul>
+        </li>
+    </ol>
+    <script>
+        //document.write("<h2>Factorial</h2>")
+        let n = prompt("Введите число: ");
+        //let f = BigInt(1);
+        //for (let i = 1; i <= n; i++) {
+        //    f *= BigInt(i);
+        //document.write(`<h3> ${f} </h3>`);
+        //}
+        document.write(`<div > Fibonachi -> `)
+        for (let a = 0, b = 1, c = a + b; a < n; c = (a = b) + (b = c)) {
+            document.write(`<div style="widht:50px;">  ${a}  </div>`);
+        }
+        document.write(`</div>`);
+
+    </script>
+</body>
+</html>

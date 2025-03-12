@@ -1,0 +1,14 @@
+﻿body
+{
+}
+li::before
+{
+
+}
+table{
+    border-collapse:collapse;
+}
+td{
+    border:1px solid;
+    width:50px;
+}

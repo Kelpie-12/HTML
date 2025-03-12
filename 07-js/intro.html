@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Intro</title>
+</head>
+<body>
+
+
+    <script>
+
+        // alert('Hello JS ' + prompt('Name') + ' !');
+        //  console.log('Helloo console');
+        //   prompt('Hell');
+        //  confirm('Really?');
+        var f = prompt('Введите число для вычисления факториала ');
+        var res = 1;
+        if (f <= 0) {
+            document.write(`<hr> Ваше число меньше одного: ${f}`);
+        }
+        else {
+            for (let i = 1; i <= f; i++) {
+                res = i * res;
+            }
+            document.write(`Факториал числа ${f} =  ${res}`);
+        }
+
+        f = prompt('Введите основание степени ');
+        var st = prompt('Введите показатель степени ');
+        document.write(`<br>Число ${f} в степени ${st} = ${Math.pow(f, st)}`);
+
+        f = prompt('Введите число до какого строить числа фибоначи ');
+        if (f == 0) {
+            document.write(`<br> Числа фибаначи <br> 0 `);
+        } else if (f == 1) {
+            document.write(`<br> Числа фибаначи <br> 1 1`);
+
+        } else {
+            if (f != null) {
+                document.write(` <br> Числа фибаначи <br> 1 1 `);
+            } else {
+                document.write(` <br> Числа фибаначи <br> null `);
+            }
+
+            let a = 1, b = 1;
+            for (let i = 3; b < f; i++) {
+                let c = a + b;
+                a = b;
+                b = c;
+                document.write(` ${b} `);
+            }
+        }
+
+        //  Пользователь вводит основание и показатель степени, и на страницу выводится степень;
+        // document.write('<hr>');
+        // { var a = 2; let b = 3; const pi = 3.14; }
+        // document.write(a);
+        // document.write(b);
+        // document.write(pi);
+    </script>
+</body>
+</html>

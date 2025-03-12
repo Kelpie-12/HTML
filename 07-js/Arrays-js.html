@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css-07-js.css" />
+    <title>Arrays</title>
+</head>
+<body>
+    <h1>Arryas</h1>
+    <script>
+        /*  let arr = [3, 5, 6, "Hello", true];
+         // for (let i = 0; i < arr.length; i++) {
+         //     document.writeln(arr[i]);
+         // }
+         // console.log(arr);
+         // document.writeln("<hr>");
+
+         // for (let i in arr) {
+         //     document.writeln(arr[i]);
+         // }
+         // let week = [];
+         // week["Sunday"] = 0;
+         // week["Monday"] = 1;
+         // week["Tuesday"] = 2;
+         // week["Wednsday"] = 3;
+         // week["Thursday"] = 4;
+         // week["Friday"] = 5;
+         // week["Saturday"] = 6;
+         //// console.log(week);
+         // document.writeln("<hr>");
+         // for (let i in week) {
+         //     document.writeln(i + ` - ${week[i]}`);
+         // }
+         // document.writeln("<hr>");
+
+         // document.writeln(week);
+
+         // document.writeln("<hr>");
+         // let s = new Array("W", "S", "S", "A");
+         // for (let i in s) {
+         //     document.writeln(s[i]);
+           }*/
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9, 10, 11]];
+        console.table(arr);
+        /* let periods = {
+             "Week": [{"Value":"Вторник"},"Понедельник"],
+             "Время года": ["Зима", "Лето"]
+         }*/
+        print(arr);
+
+        document.write(arr.join("<hr>"));
+        document.writeln("<table>");
+        for (let i = 0; arr.length; i++) {
+            document.writeln("<tr>");
+            for (let j = 0; j < arr[i].length; j++) {
+                document.writeln("<td>");
+                document.writeln(arr[i][j]);
+                document.writeln("</td>");
+            }
+            document.writeln("</tr>");
+        }
+        document.writeln("</table>");
+        console.table(periods);
+        function print(arr) {
+            document.writeln("<table>");
+            for (let i in arr) {
+                if (Array.isArray(arr[i])) {
+                        document.writeln("<tr>");
+                    for (let j = 0; j < arr[i].length; j++) {
+                        document.writeln("<td>");
+                        document.writeln(arr[i][j]);
+                        document.writeln("</td>");
+                    }
+                        document.writeln("</tr>");
+                } else {
+                    document.write("<td>");                  
+                    document.writeln(arr[i]);
+                    document.write("</td>");
+                }
+            }
+            document.writeln("</table>");
+        }
+    </script>
+
+
+</body>
+</html>

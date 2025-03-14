@@ -163,6 +163,9 @@
         arr = null;
         arr = fill_array(5, true);
         print(arr);
+        arr.sort();
+        document.writeln(`<p>Массив отсортирован </p>`);
+        print(arr);
         document.writeln(`<p>Средние арифметическое значение двумерного массива - ${average_array(arr)}</p>`);
         document.writeln(`<p>Минимальное значение двумерного массива - ${mim_array(arr)}</p>`);
         document.writeln(`<p>Максимальное значение двумерного массива - ${max_array(arr)}</p>`);

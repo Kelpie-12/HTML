@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css-07-js.css" />
+    <title>Events</title>
+</head>
+<body>
+    <h2>Events</h2>
+    <div id="display" style="width:100px; height:50px; background-color:lightblue;" onclick="increnent();"></div>
+    <input id="text" type="text" oninput="show_text()"/>
+    <input id="show" type="button" value="Show" onclick="show_text()"/>
+    <div id="display_text"  ></div>
+    <div style="display:grid">
+        <img id="image" src="" alt="Выберите картинку" style="width:200px;height:200px;" />
+        <input id="file" type="file" onchange="set_image()"/>
+    </div>
+    <script>
+        var i = 0;
+        function increnent() {
+            i++;
+            let display = document.getElementById("display");
+            display.innerHTML = `<h2>${i}</h2>`;
+            // document.writeln(i);
+        }
+        function show_text() {
+            let text = document.getElementById("text").value;
+            let display_text = document.getElementById("display_text");           
+            display_text.innerHTML = text;
+        }
+        //  let image = document.getElementById("image");
+        //  let file = document.getElementById("file");
+        //  file.innerHTML = image.value;
+        function set_image() {
+            let f = file.files[0];
+            if (f) {
+                image.src = URL.createObjectURL(f);
+                localStorage.setItem('myImage', image.src);
+            }        
+        }
+        image.scr = localStorage.getItem('myImage');
+    </script>
+</body>
+</html>

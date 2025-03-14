@@ -114,7 +114,18 @@ html, body {
         .menu-bar > input[type=button]:hover {
             box-shadow: 0px 0px 0px 1px grey;
         }
+/*.calc-display {
+    display: grid;
+    justify-items: end;
+    align-items: end;
+    margin-bottom: 20px;
+}
 
+    .calc-display > p {
+        text-align: right;
+        font-size: 18px;
+        margin: 0;
+    }*/
 .client-rect > input[type=text] {
     margin: 10px;
     text-align: right;

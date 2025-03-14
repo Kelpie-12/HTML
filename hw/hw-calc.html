@@ -26,13 +26,16 @@
                     <input type="button" value="Вид">
                     <input type="button" value="Справка">
                 </div>
-                <input type="text" value="0.">
+                <!--<div id="calc-display" >
+                    <p>0</p>
+                </div>-->
+                <input id="calc-display" type="text" value="0." onchange="change_imput()">
                 <div class="display-buttons">
                     <div id="square"></div>
                     <div class="display-buttons">
                         <button>Backspace</button>
-                        <button>CE</button>
-                        <button>C</button>
+                        <button id="ce">CE</button>
+                        <button id="c" onclick="clear_all()">C</button>
                     </div>
                 </div>
                 <div class="buttons">
@@ -44,19 +47,19 @@
                     </div>
                     <!--  -->
                     <div id="digits">
-                        <button>7</button>
-                        <button>8</button>
-                        <button>9</button>
+                        <button class="btn" onclick="number_change()">7</button>
+                        <button class="btn" onclick="number_change()">8</button>
+                        <button class="btn" onclick="number_change()">9</button>
 
-                        <button>4</button>
-                        <button>5</button>
-                        <button>6</button>
+                        <button class="btn" onclick="number_change()">4</button>
+                        <button class="btn" onclick="number_change()">5</button>
+                        <button class="btn" onclick="number_change()">6</button>
 
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
+                        <button class="btn" onclick="number_change()">1</button>
+                        <button class="btn" onclick="number_change()">2</button>
+                        <button class="btn" onclick="number_change()">3</button>
 
-                        <button>0</button>
+                        <button class="btn" onclick="number_change()">0</button>
                         <button>+/-</button>
                         <button>.</button>
                     </div>
@@ -71,12 +74,36 @@
                         <button style="color:blue;">sqrt</button>
                         <button style="color:blue;">%</button>
                         <button style="color:blue;">1/X</button>
-                        <button >=</button>
-                   
+                        <button>=</button>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        let a = ``;
+        let b = ``;
+        let finish = false;
+        let sing = ``;
+
+        const digits = [`0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `.`];
+        const action = [`-`, `+`, `*`, `/`];
+
+        const out = document.getElementById('calc-display');
+        function clear_all() {
+            a = ``;
+            b = ``;
+            sing = ``;
+            finish = false;            
+        }
+        function change_imput() {
+
+        }
+    
+        function number_change() {
+            
+        }
+    </script>
 </body>
 </html>

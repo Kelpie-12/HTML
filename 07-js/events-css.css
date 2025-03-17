@@ -1,0 +1,25 @@
+﻿#header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+#switch {
+    width:32px; height:32px;
+    margin:4px;
+}
+.btn_light {
+    margin: 50px auto;
+    width: 88px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    background-color: #e6f540;
+    /*padding: 18px;*/
+    box-shadow: 4px 4px 4px #4f4f4f;
+    /*border-radius: 20px;*/
+}
+/*#switch:active {
+    transform: translateX(40px);
+}*/
+
+

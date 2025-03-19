@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="events-css.css" />
     <title>Events</title>
 </head>
-<body class="light">
+<body class="light" onload="format_current_time()">
     <div id="header">
         <h2>Events</h2>
         <div class="btn_light">
@@ -22,11 +22,11 @@
     <input id="text" type="text" oninput="show_text()" />
     <input id="show" type="button" value="Show" onclick="show_text()" />
     <div id="display_text"></div>
-    <div style="display:grid">
+    <!--<div style="display:grid">
         <img id="image" src="" alt="Выберите картинку" style="width:200px;height:200px;" />
         <input id="file" type="file" onchange="set_image()" />
 
-    </div>
+    </div>-->
     <!--<div id="dom" style="width:100px; height:50px; background-color:slategrey;">
         <ul>
             <li>
@@ -55,79 +55,59 @@
             <li>Class2</li>
         </ul>
     </div>-->
+    <!--  <div id="dom" style="width:200px; height:100px; border:1px solid #000000"> </div>-->
 
-    <div id="dom" style="width:200px; height:100px; border:1px solid #000000">
-
+    <hr />
+    <h2>Date and Time</h2>
+    <div id="date"></div>
+    <div id="time"></div>
+    <div id="show_date_container" style="width:100%; text-align:center;">
+        <input type="checkbox" id="show_date">
+        <label for="show_date">Показать дату</label>
     </div>
 
-   
-    <script>
-        var i = 0;
-        function increnent() {
-            i++;
-            let display = document.getElementById("display");
-            display.innerHTML = `<h2>${i}</h2>`;
-            // document.writeln(i);
-        }
-        function show_text() {
-            let text = document.getElementById("text").value;
-            let display_text = document.getElementById("display_text");
-            display_text.innerHTML = text;
-        }
-        //  let image = document.getElementById("image");
-        //  let file = document.getElementById("file");
-        //  file.innerHTML = image.value;
-        function set_image() {
-            let f = file.files[0];
-            if (f) {
-                image.src = URL.createObjectURL(f);
-                localStorage.setItem('myImage', image.src);
-            }
-        }
-        image.scr = localStorage.getItem('myImage');
-    </script>
-    <script>
-        //console.log(document.body);
-        //   let dom = document.getElementById("dom");
-        let dom = document.querySelector("#dom");
-        if (dom) {
-            //  dom.append("append()");
-            // dom.prepend("prepend()");
-            const a = document.createElement("span");
-            //let b = document.querySelector("#display");
-            let s = document.getElementById('display');
-            //dom.replaceWith(b);
+    <hr />
+    <div id="date_time">
+        1
+    </div>
 
-            dom.style.cssText += "background-color:red;";
-            console.log(dom.innerHTML);
-        }
+    <div class="input_date">
+        <input type="datetime-local" value="2025-03-18T00:00" id="input_num" />
+        <div class="btn_ok" id="date_user">Ok</div>
+    </div>
+    <div class="result_date">
+        <div id="years">
+            <span>00</span>
+            лет
+        </div>
+        <div id="months">
+            <span>00</span>
+            месяцев
+        </div>
+        <div id="days">
+            <span>00</span>
+            дней
+        </div>
+        <div id="hours">
+            <span>00</span>
+            часов
+        </div>
+        <div id="minutes">
+            <span>00</span>
+            минут
+        </div>
+        <div id="seconds">
+            <span>00</span>
+            секунд
+        </div>
+    </div>
 
-        //console.log(dom);
-        //dom.innerHTML = "<h2>InnerHTML</h2>";
-        // dom.outerHTML = "<h2>OuterHTML</h2>";
-    </script>
-
-    <script>
-        function switch_button() {
-            let btn = document.getElementById('switch');
-            let img = btn.src.split('/').at(-1);
-
-            if (img === 'noch.png') {
-                btn.src = "img/sun.png";
-                btn.style.transform = ' translateX(40px)';
-                document.querySelector('.btn_light').style.backgroundColor = "#000";
-            }
-            else {
-                btn.src = "img/noch.png";
-                btn.style.transform = ' translateX(-1px)';
-                document.querySelector('.btn_light').style.backgroundColor = "#e6f540";
-            }
-            document.body.style.backgroundColor = img === 'sun.png' ? `white` : `#333`;
-            document.body.style.color = img === 'sun.png' ? `#333` : `white`;
-            document.body.style.transition = img === 'sun.png' ? `#333` : `white`;
-
-        }
-        
-    </script>
+    <div class="input_desimal">
+        <p> Введите число в двоичной системе</p>
+        <input type="number" id="input_num_desimal" />
+        <div class="btn_ok" id="decimal">Ok</div>
+        <div id="result-decimal">0</div>
+    </div>
+    <script src="event.js"></script>
 </body>
 </html>

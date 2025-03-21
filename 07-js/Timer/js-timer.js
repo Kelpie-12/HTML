@@ -6,12 +6,12 @@ const hour = document.getElementById("hour");
 const mim = document.getElementById("mim");
 const sec = document.getElementById("sec");
 
-const currenty = new Date().getFullYear();
+//const currenty = new Date().getFullYear();
 var user_start = document.getElementById("user-start");
 //const newY = new Date(`1 Jan ${currenty + 1} 00:00:00`);
 //console.log("new: " + newY);
 var key = null;
-const user_date = new Date(document.getElementById("user-date").value);
+var user_date; 
 
 console.log("user_date: " + user_date);
 //const user_tmp_date = new Date();
@@ -36,7 +36,8 @@ function countdown_timer() {
 
 
 }
-function start_timer() {    
+function start_timer() { 
+    user_date  = new Date(document.getElementById("user-date").value);
     user_start.value = "Stop";
     document.getElementById("user-date").disabled  = true;
     document.getElementById("user-date").style.cursor = "not-allowed";

@@ -1,0 +1,49 @@
+﻿body
+{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    margin:auto;
+    height:100vh;
+    background-color:aquamarine
+
+}
+.wrapper{
+    position:relative;
+    display:block;
+    padding:60px 30px;
+    background-color:aliceblue;
+}
+.wrapper h1{
+    font-size:56px;
+    color:#000000;
+   
+}
+    .wrapper h2 {
+        font-size: 32px;
+        color: #fff;
+    }
+    .wrapper .countdown_timer {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+    }
+.countdown_timer .timer {
+    padding: 20px;
+    margin: 20px;
+    background-color: seagreen;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    min-width: 100px;
+}
+.timer{
+    color: #fff;
+    text-transform: uppercase;
+    font-size:18px;
+
+}
+#user-data>input{
+    font-size:32px;
+}

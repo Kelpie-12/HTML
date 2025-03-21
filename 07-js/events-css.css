@@ -80,11 +80,12 @@
 }
 
 .input_desimal {
-    display: grid;
+    display: grid;    
     grid-template-areas: "p input_num_desimal decimal result-decimal";
     text-align: center;
     margin-top: 10px;
     grid-gap: 7px;
+   
 }
 
 span {

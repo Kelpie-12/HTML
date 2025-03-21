@@ -1,4 +1,4 @@
-// JavaScript source code
+﻿// JavaScript source code
 
 var i = 0;
 function increnent() {
@@ -62,16 +62,44 @@ function switch_button() {
     document.body.style.color = img === 'sun.png' ? `#333` : `white`;
     document.body.style.transition = img === 'sun.png' ? `#333` : `white`;
 }
-format_current_time();
-function format_current_time() {
-    let current_time = new Date();
-    let date_and_time = document.getElementById('date_time');
-    date_and_time.innerHTML = `current_time.getDate(); - ${current_time.getDate()} <br>`
-    date_and_time.append(`current_time.getTime(); - ${current_time.getTime()}`);
 
-    document.getElementById('date').innerHTML = `${current_time.getFullYear()}.${/*check_number(*/(current_time.getMonth() + 1).toString().padStart(2, '0') /*+ 1)*/}.${current_time.getDate()}`.toString();
-    document.getElementById('time').innerHTML = `${current_time.getHours().toString().padStart(2, '0')}.${(current_time.getMinutes() + 1).toString().padStart(2, '0')}.${current_time.getSeconds()}`.toString();
-    setTimeout(format_current_time, 1000);
+
+
+//let current_time = new Date();
+//let date_and_time = document.getElementById("date-and-time");
+//date_and_time.innerHTML = `getDate():\t${current_time.getDate()};<br>`;
+//date_and_time.append(`getTime():\t${current_time.getTime()};`);
+//date_and_time.append(`getDay():\t${(new Date(2025, 02, 16)).toLocaleString("default", { weekday: "long" })};`);
+
+//const WEEK = [""]
+
+function tick_timer() {
+    let current_time = new Date();
+    if (document.getElementById("show-date").checked) {
+        let yyyy = current_time.getFullYear();
+        let MM = checkNumber(current_time.getMonth() + 1);
+        let dd = checkNumber(current_time.getDate());
+        let date_string = `${yyyy}.${MM}.${dd}`;
+        document.getElementById("date").innerHTML = date_string;
+    }
+    else {
+        document.getElementById("date").innerHTML = "";
+    }
+
+    document.getElementById("weekday").innerHTML =
+        document.getElementById("show-weekday").checked ? current_time.toLocaleString("default", { weekday: "long" }) : "";
+
+    let hh = checkNumber(current_time.getHours());
+    let mm = checkNumber(current_time.getMinutes());
+    let ss = checkNumber(current_time.getSeconds());
+
+    let time_string = `${hh}:${mm}:${ss}`;
+    document.getElementById("time").innerHTML = time_string;
+    setTimeout(tick_timer, 1000);	//setTimeout(function_pointer, milliseconds) - âûçûâàåò óêàçàííóþ ôóíêöèþ ÷åðåç óêàçàííûé ïðîìåæóòîê âðåìåíè.
+}
+
+function checkNumber(i) {
+    return i < 10 ? "0" + i : i;
 }
 
 

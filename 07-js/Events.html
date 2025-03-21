@@ -58,22 +58,30 @@
     <!--  <div id="dom" style="width:200px; height:100px; border:1px solid #000000"> </div>-->
 
     <hr />
-    <h2>Date and Time</h2>
+    <h2>Date & Time</h2>
+    <hr>
     <div id="date"></div>
     <div id="time"></div>
-    <div id="show_date_container" style="width:100%; text-align:center;">
-        <input type="checkbox" id="show_date">
-        <label for="show_date">Показать дату</label>
+    <div id="weekday"></div>
+    <div id="show-date-container" style="width:100%;text-align:center;">
+        <input type="checkbox" id="show-date"><label for="show-date">Показать дату</label>
     </div>
+    <div id="show-weekday-container" style="width:100%;text-align:center;">
+        <input type="checkbox" id="show-weekday"><label for="show-weekday">Показать день недели</label>
+    </div>
+
+    <hr>
+    <div id="date-and-time"></div>
 
     <hr />
     <div id="date_time">
         1
     </div>
-
-    <div class="input_date">
+    <a href="timer/timer.html"><p>Timer</p></a>
+    <!--<div class="input_date">
         <input type="datetime-local" value="2025-03-18T00:00" id="input_num" />
-        <div class="btn_ok" id="date_user">Ok</div>
+        <div class="btn_ok" id="date_user">Start</div>
+   
     </div>
     <div class="result_date">
         <div id="years">
@@ -107,7 +115,7 @@
         <input type="number" id="input_num_desimal" />
         <div class="btn_ok" id="decimal">Ok</div>
         <div id="result-decimal">0</div>
-    </div>
+    </div>-->
     <script src="event.js"></script>
 </body>
 </html>

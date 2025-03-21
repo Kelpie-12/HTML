@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css-timer.css" />
+    <title></title>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="user-data">
+            <input type="datetime-local" id="user-date" value="2025-03-25T16:30" />
+            <input type="button" id="user-start" value="Start" onclick="start_timer()" />
+            <div id="user-values-date"></div>
+            <div id="user-values-timestamp"></div>
+        </div>
+
+        <h1>До вашей даты осталось:</h1>
+        <div class="countdown_timer">
+            <div class="timer"><h2 id="year">00</h2><P>Years</P></div>
+            <div class="timer"><h2 id="mon">00</h2> <P>Months</P></div>
+            <div class="timer"><h2 id="day">00</h2> <P>Days</P></div>
+            <div class="timer"><h2 id="hour">00</h2><P>Hours</P></div>
+            <div class="timer"><h2 id="mim">00</h2> <P>Minutes</P></div>
+            <div class="timer"><h2 id="sec">00</h2> <P>Seconds</P></div>
+        </div>
+    </div>
+    <script src="js-timer.js"></script>
+</body>
+</html>

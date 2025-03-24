@@ -65,11 +65,11 @@ function switch_button() {
 
 
 
-//let current_time = new Date();
-//let date_and_time = document.getElementById("date-and-time");
-//date_and_time.innerHTML = `getDate():\t${current_time.getDate()};<br>`;
-//date_and_time.append(`getTime():\t${current_time.getTime()};`);
-//date_and_time.append(`getDay():\t${(new Date(2025, 02, 16)).toLocaleString("default", { weekday: "long" })};`);
+let current_time = new Date();
+let date_and_time = document.getElementById("date-and-time");
+date_and_time.innerHTML = `getDate():\t${current_time.getDate()};<br>`;
+date_and_time.append(`getTime():\t${current_time.getTime()};`);
+date_and_time.append(`getDay():\t${(new Date(2025, 03 - 1, 16)).toLocaleString("default", { weekday: "long" })};`);
 
 //const WEEK = [""]
 
@@ -102,71 +102,90 @@ function checkNumber(i) {
     return i < 10 ? "0" + i : i;
 }
 
+function start_timer() {
+    //  let user_date_input = document.getElementById("user-date");
+    // let user_time_input = document.getElementById("user-time");
+    let user_datetime_local = document.getElementById("user-datetime-local");
 
-const out = document.querySelector('.result_date');
-document.querySelector('#date_user').onclick = get_date;
-document.querySelector('#decimal').onclick = convert_binary;
-function get_date() {
-    let today_date = new Date(),
-        user_date = new Date(document.getElementById('input_num').value),
-        date = Math.floor((today_date.getTime() - user_date.getTime()) / 1000);
+    let start_timer_button = document.getElementById("start-timer");
 
-    let tmp = 0, tmpL = date;
+    //let user_date = user_date_input.valueAsDate;
+    //let user_time = user_time_input.valueAsDate;
 
+    //document.getElementById("user-values-date").innerHTML = user_date;
+    //document.getElementById("user-values-time").innerHTML = user_time;
+    document.getElementById("user-datetime-local-values").innerHTML = user_datetime_local.value;
+    //document.getElementById("user-datetime-local-timestamp").innerHTML = new Date(user_datetime_local.value);
+    document.getElementById("user-datetime-local-timestamp").innerHTML = user_datetime_local.valueAsNumber;
 
-    /*
-    years = Math.floor(t / (1000 * 60 * 60 * 24 * 30 * 12)),
-    months = Math.floor(t / (1000 * 60 * 60 * 24 * 30) % 12),
-    days = Math.floor(t / (1000 * 60 * 60 * 24) % 30),
-    hours = Math.floor((t / (1000 * 60 * 60)) % 24),
-    minutes = Math.floor((t / (1000 * 60)) % 60),
-    seconds = Math.floor((t / 1000) % 60); 
-    */
-    //tmp = Math.floor(tmpL / (30 * 12 * 24 * 60 * 60));
-    //tmpL -= tmp * (30 * 12 * 24 * 60 * 60);
-    //console.log(tmpL);
-    //if (tmp < 10) {
-    //    tmp = '0' + tmp;
-    //}
-    //document.querySelector('#years span').innerHTML = tmp;
-
-
-
-    tmp = Math.floor(tmpL / (12 * 24 * 60 * 60));
-    tmpL -= tmp * (12 * 24 * 60 * 60);
-    if (tmp < 10) {
-        tmp = '0' + tmp;
+    if (start_timer_button.value === "Start" && user_datetime_local.value !== "") {
+        start_timer_button.value = "Stop";
+        user_datetime_local.disabled = true;
+        countdown_timer();
     }
-    document.querySelector('#months span').innerHTML = tmp;
-
-    tmp = Math.floor(tmpL / (24 * 60 * 60));
-    tmpL -= tmp * (24 * 60 * 60);
-    if (tmp < 10) {
-        tmp = '0' + tmp;
+    else {
+        start_timer_button.value = "Start";
+        user_datetime_local.disabled = false;
     }
-    document.querySelector('#days span').innerHTML = tmp;
-
-    tmp = Math.floor(tmpL / (60 * 60));
-    tmpL -= tmp * (60 * 60);
-    if (tmp < 10) {
-        tmp = '0' + tmp;
-    }
-    document.querySelector('#hours span').innerHTML = tmp;
-
-    tmp = Math.floor((tmpL / 60) % 60);
-    tmpL -= tmp * 60;
-    if (tmp < 10) {
-        tmp = '0' + tmp;
-    }
-    document.querySelector('#minutes span').innerHTML = tmp;
-
-    if (tmpL < 10) {
-        tmpL = '0' + tmpL;
-    }
-    document.querySelector('#seconds span').innerHTML = tmpL;
-
-    setInterval(get_date, 1000);
 }
+
+function countdown_timer() {
+    let user_datetime = +new Date(document.getElementById("user-datetime-local").value);//.valueAsNumber;
+    let current_time = Date.now();
+    let timestamp = user_datetime - current_time;
+    timestamp = Math.trunc(timestamp / 1000);
+    document.getElementById("difference").innerHTML = timestamp;
+
+    const SECONDS_IN_MINUTE = 60;
+    const SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
+    const SECONDS_IN_DAY = SECONDS_IN_HOUR * 24;
+    const SECONDS_IN_WEEK = SECONDS_IN_DAY * 7;
+    const DAYS_IN_MONTH = 365 / 12;
+    const SECONDS_IN_MONTH = DAYS_IN_MONTH * SECONDS_IN_DAY;
+    const SECONDS_IN_YEAR = SECONDS_IN_DAY * 365 + SECONDS_IN_HOUR * 6;
+
+    let years = Math.trunc(timestamp / SECONDS_IN_YEAR);
+    if (years > 0) {
+        timestamp = Math.trunc(timestamp % (SECONDS_IN_YEAR * years));
+    }
+
+    let monthes = Math.trunc(timestamp / SECONDS_IN_MONTH);
+    if (monthes > 0) {
+        timestamp = Math.trunc(timestamp % (monthes * SECONDS_IN_MONTH));
+    }
+
+    let weeks = Math.trunc(timestamp / SECONDS_IN_WEEK);
+    if (weeks > 0) {
+        timestamp = Math.trunc(timestamp % (SECONDS_IN_WEEK * weeks));
+    }
+
+    let days = Math.trunc(timestamp / SECONDS_IN_DAY);
+    if (days > 0) {
+        timestamp = Math.trunc(timestamp % (days * SECONDS_IN_DAY));
+    }
+
+    let hours = Math.trunc(timestamp / SECONDS_IN_HOUR);
+    if (hours > 0) {
+        timestamp = Math.trunc(timestamp % (SECONDS_IN_HOUR * hours));
+    }
+
+    let minutes = Math.trunc(timestamp / SECONDS_IN_MINUTE);
+    if (minutes > 0) {
+        timestamp = Math.trunc(timestamp % (SECONDS_IN_MINUTE*minutes));
+
+    }
+
+    let seconds = Math.trunc(timestamp);
+
+
+    document.getElementById("current-timestamp").innerHTML = `current_time-> ${current_time}`;
+    document.getElementById("time-units").innerHTML =
+        `${years} years, ${monthes} monthes, ${weeks} weeks, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+
+    setTimeout(countdown_timer, 1000);
+    setTimeout(countdown_timer, 1000);
+}
+
 
 function convert_binary() {
     let num = document.getElementById('input_num_desimal').value;

@@ -11,7 +11,7 @@ var user_start = document.getElementById("user-start");
 //const newY = new Date(`1 Jan ${currenty + 1} 00:00:00`);
 //console.log("new: " + newY);
 var key = null;
-var user_date; 
+var user_date;
 
 console.log("user_date: " + user_date);
 //const user_tmp_date = new Date();
@@ -21,40 +21,83 @@ function countdown_timer() {
     //  const gap =  newY-today ;
     let gap = -1;
 
-    gap = user_date - today;
+    gap = Math.abs(user_date - today);
     const d = Math.floor(gap / 1000 / 60 / 60 / 24);//(gap / (1000 / 60 / 60 / 24) % 28);
     const h = Math.floor((gap / 1000 / 60 / 60) % 24);//(gap / ((1000 * 60 * 60)) % 24);
     const i = Math.floor((gap / 1000 / 60) % 60);//(gap / ((1000 * 60)) % 60);
     const s = Math.floor((gap / 1000) % 60);//(gap / (1000) % 60);
+    if (d > 0) {
+        if (document.querySelector("#day") == null) {
+            document.querySelector(".countdown_timer").append(create_block_time("day", d));
+        } else {
+            document.querySelector("#day").innerHTML = d < 10 ? "0" + d : d;
+        }
+    } else {
 
+    }
+    if (h > 0) {
+        if (document.querySelector("#hour") == null) {
+            document.querySelector(".countdown_timer").append(create_block_time("hour", h));
+        } else {
+            document.querySelector("#hour").innerHTML = h < 10 ? "0" + h : h;
+        }
+    } else {
 
-    day.innerHTML = d < 10 ? "0" + d : d;
-    hour.innerHTML = h < 10 ? "0" + h : h;
-    mim.innerHTML = i < 10 ? "0" + i : i;
-    sec.innerHTML = s < 10 ? "0" + s : s;
+    }
+    if (i > 0) {
+        if (document.querySelector("#min") == null) {
+            document.querySelector(".countdown_timer").append(create_block_time("min", i));
+        } else {
+            document.querySelector("#min").innerHTML = i < 10 ? "0" + i : i;
+        }
+    } else {
+
+    } if (s > 0) {
+        if (document.querySelector("#sec") == null) {
+            document.querySelector(".countdown_timer").append(create_block_time("sec", s));
+        }
+        else {
+            document.querySelector("#sec").innerHTML = s < 10 ? "0" + s : s;
+        }
+
+    } else {
+
+    }
     key = setInterval(countdown_timer, 1000);
 
 
 }
-function start_timer() { 
-    user_date  = new Date(document.getElementById("user-date").value);
+function create_block_time(name, number) {
+    let tmp_div = document.createElement("div");
+    let tmp_h2 = document.createElement("h2");
+    let tmp_p = document.createElement("p");
+    tmp_div.className = "timer";
+    tmp_h2.id = name;
+    tmp_h2.innerHTML = number < 10 ? "0" + number : number;
+    tmp_p.innerHTML = `${name}`;
+    tmp_div.append(tmp_h2);
+    tmp_div.append(tmp_p);
+
+    return tmp_div;
+}
+function start_timer() {
+    user_date = new Date(document.getElementById("user-date").value);
     user_start.value = "Stop";
-    document.getElementById("user-date").disabled  = true;
+    document.getElementById("user-date").disabled = true;
     document.getElementById("user-date").style.cursor = "not-allowed";
-    user_start.onclick = stop_timer; 
+    user_start.onclick = stop_timer;
     countdown_timer();
 }
 
 function stop_timer() {
-    if (key)
-    {       
+    if (key) {
         user_start.value = "Start";
-        document.getElementById("user-date").disabled  = false;
+        document.getElementById("user-date").disabled = false;
         document.getElementById("user-date").style.cursor = "default";
         user_start.onclick = start_timer;
         clearInterval(key);
         key = null;
-     
+
     }
 }
 // const gap = user_tmp_date - user_date;

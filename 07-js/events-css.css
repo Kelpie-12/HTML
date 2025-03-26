@@ -112,5 +112,25 @@ span {
 /*#switch:active {
     transform: translateX(40px);
 }*/
-
+#display {
+    display: flex;
+    justify-content: space-around;
+}
+.time_block {
+    width: 120px;
+    height: 80px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 32px;
+}
+.time_unit {
+    height:80px;
+    color: wheat;
+    background-color: blue;
+}
+.time_marker {
+    color: wheat;
+    background-color: red;
+}
 

@@ -130,33 +130,55 @@ function start_timer() {
 }
 
 function countdown_timer() {
-    let user_datetime = +new Date(document.getElementById("user-datetime-local").value);//.valueAsNumber;
-    let current_time = Date.now();
-    let timestamp = user_datetime - current_time;
-    timestamp = Math.trunc(timestamp / 1000);
-    document.getElementById("difference").innerHTML = timestamp;
-
     const SECONDS_IN_MINUTE = 60;
-    const SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
-    const SECONDS_IN_DAY = SECONDS_IN_HOUR * 24;
-    const SECONDS_IN_WEEK = SECONDS_IN_DAY * 7;
+    const SECONDS_IN_HOUR = 3600;
+    const SECONDS_IN_DAY = 86400;
+    const SECONDS_IN_WEEK = 86400 * 7;
     const DAYS_IN_MONTH = 365 / 12;
     const SECONDS_IN_MONTH = DAYS_IN_MONTH * SECONDS_IN_DAY;
     const SECONDS_IN_YEAR = SECONDS_IN_DAY * 365 + SECONDS_IN_HOUR * 6;
 
-    let years = Math.trunc(timestamp / SECONDS_IN_YEAR);
-    if (years > 0) {
-        timestamp = Math.trunc(timestamp % (SECONDS_IN_YEAR * years));
-    }
+    let user_datetime = +new Date(document.getElementById("user-datetime-local").value);
+    let current_time = +new Date();
+    let timezone_offset = new Date().getTimezoneOffset() / 60;
+    //current_time += (timezone_offset * 3600000);
+    //	console.log(`${current_time} ------ ${timezone_offset * 3600000}`);
 
-    let monthes = Math.trunc(timestamp / SECONDS_IN_MONTH);
-    if (monthes > 0) {
-        timestamp = Math.trunc(timestamp % (monthes * SECONDS_IN_MONTH));
+    //document.getElementById("current-timezone").innerHTML = `Current timezone: ${timezone_offset}`
+ //   document.getElementById("user-timezone").innerHTML = `User timezone: ${document.getElementById("user-datetime-local").valueAsDate}`
+    current_time = Math.trunc(current_time / 1000);
+    user_datetime = Math.trunc(user_datetime / 1000);
+    document.getElementById("current-timestamp").innerHTML = current_time;
+    let timestamp = user_datetime - current_time;
+    let time_of_day = timestamp % SECONDS_IN_DAY;
+
+  
+
+    let years = Math.trunc(timestamp / SECONDS_IN_YEAR);
+    let display = document.getElementById("display");
+    if (years != 0) {
+        timestamp = Math.trunc(timestamp % (years * SECONDS_IN_YEAR));
+        let years_unit = document.getElementById("years_unit");
+        if (years == null)
+            display.prepend(createTimeBlock("years", years));
     }
+    else removeTimeBlock("years");
+
+
+    let months = Math.trunc(timestamp / SECONDS_IN_MONTH);
+    if (months > 0) {
+        timestamp = Math.trunc(timestamp % (months * SECONDS_IN_MONTH));
+        let months_unit = document.getElementById("months_unit");
+        if (months_unit == null) {
+            let years_unit = document.getElementById("years_unit");
+            display.prepend(createTimeBlock("months", months));
+            //if(years_unit == null)display.app
+        }
+    } else removeTimeBlock("months");
 
     let weeks = Math.trunc(timestamp / SECONDS_IN_WEEK);
     if (weeks > 0) {
-        timestamp = Math.trunc(timestamp % (SECONDS_IN_WEEK * weeks));
+        timestamp = Math.trunc(timestamp % (weeks * SECONDS_IN_WEEK));
     }
 
     let days = Math.trunc(timestamp / SECONDS_IN_DAY);
@@ -164,28 +186,60 @@ function countdown_timer() {
         timestamp = Math.trunc(timestamp % (days * SECONDS_IN_DAY));
     }
 
-    let hours = Math.trunc(timestamp / SECONDS_IN_HOUR);
+    let hours = Math.trunc(time_of_day / SECONDS_IN_HOUR);
     if (hours > 0) {
-        timestamp = Math.trunc(timestamp % (SECONDS_IN_HOUR * hours));
+        time_of_day = Math.trunc(time_of_day % (hours * SECONDS_IN_HOUR));
     }
 
-    let minutes = Math.trunc(timestamp / SECONDS_IN_MINUTE);
+    let minutes = Math.trunc(time_of_day / SECONDS_IN_MINUTE);
     if (minutes > 0) {
-        timestamp = Math.trunc(timestamp % (SECONDS_IN_MINUTE*minutes));
-
+        time_of_day = Math.trunc(time_of_day % (minutes * SECONDS_IN_MINUTE));
     }
 
-    let seconds = Math.trunc(timestamp);
+    let seconds = Math.trunc(time_of_day);
 
+    let debug_display = document.getElementById("display");
+    console.log(debug_display.children.length);
 
-    document.getElementById("current-timestamp").innerHTML = `current_time-> ${current_time}`;
+    document.getElementById("hours_unit").innerHTML = hours;
+    document.getElementById("minutes_unit").innerHTML = minutes;
+    document.getElementById("seconds_unit").innerHTML = seconds;
+
     document.getElementById("time-units").innerHTML =
-        `${years} years, ${monthes} monthes, ${weeks} weeks, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        `${years} years, ${months} monthes, ${weeks} weeks, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
 
-    setTimeout(countdown_timer, 1000);
-    setTimeout(countdown_timer, 1000);
+    if (document.getElementById("start-timer").value === 'Stop')
+        setTimeout(countdown_timer, 1000);
 }
 
+function createTimeBlock(name, value) {
+    let time_block = document.createElement("div");
+    time_block.className = "time_block";
+
+    let unit = document.createElement("div");
+    unit.id = `${name}_unit`;
+    unit.className = "time_unit";
+    unit.innerHTML = checkNumber(value);
+
+    let marker = document.createElement("div");
+    marker.id = `${name}_marker`;
+    marker.className = "time_marker";
+    marker.innerHTML = name;
+
+    time_block.append(unit);
+    time_block.append(marker);
+
+    return time_block;
+}
+
+function removeTimeBlock(name) {
+    let unit = document.getElementById(`${name}_unit`);
+    if (unit != null) {
+        let block = unit.parentElement;
+        let display = block.parentElement;
+        display.removeChild(block);
+    }
+}
 
 function convert_binary() {
     let num = document.getElementById('input_num_desimal').value;

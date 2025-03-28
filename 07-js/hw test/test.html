@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css-test.css" />
+
+    <title>Test</title>
+</head>
+<body>
+    <div class="header">
+        Пройдите тест
+    </div>
+    <div class="question">
+        <h3>
+            Известный код из Матрицы на самом деле обозначает …</h3>
+        <div>
+            <div class="answer" id="q-1-1"> <input type="radio" name="q-1" id="1-1" />Рецепт суши</div>
+            <div class="answer" id="q-1-2"> <input type="radio" name="q-1" id="1-2" />Кто такой Маркус</div>
+            <div class="answer" id="q-1-3"> <input type="radio" name="q-1" id="1-3" />Историю Нео</div>
+        </div>
+    </div>
+    <div class="question">
+        <h3>
+            Назовите страну с самой высокой продолжительностью жизни.</h3>
+        <div>
+            <div class="answer" id="q-2-1"> <input type="radio" name="q-2" id="2-1" />Шведция</div>
+            <div class="answer" id="q-2-2"> <input type="radio" name="q-2" id="2-2" />Гонконг</div>
+            <div class="answer" id="q-2-3"> <input type="radio" name="q-2" id="2-3" />Германия</div>
+        </div>
+    </div>
+    <div class="question">
+        <h3>
+            Новобранец на флоте – это …
+        </h3>
+        <div>
+            <div class="answer" id="q-3-1"> <input type="radio" name="q-3" id="3-1" />Черпак</div>
+            <div class="answer" id="q-3-2"> <input type="radio" name="q-3" id="3-2" />Салага</div>
+            <div class="answer" id="q-3-3"> <input type="radio" name="q-3" id="3-3" />Дух</div>
+        </div>
+    </div>
+    <div class="question">
+        <h3>
+            Брандмауэр – это …
+        </h3>
+        <div>
+            <div class="answer" id="q-4-1"> <input type="radio" name="q-4" id="4-1" />Измерительный прибор</div>
+            <div class="answer" id="q-4-2"> <input type="radio" name="q-4" id="4-2" />Название улицы</div>
+            <div class="answer" id="q-4-3"> <input type="radio" name="q-4" id="4-3" />Противопожарная стена</div>
+        </div>
+    </div>
+    <div class="question">
+        <h3>
+            Скульптура «Медный всадник» посвящена …
+        </h3>
+        <div>
+            <div class="answer" id="q-5-1"> <input type="radio" name="q-5" id="5-1" />Петру 1</div>
+            <div class="answer" id="q-5-2"> <input type="radio" name="q-5" id="5-2" />Николаю 2</div>
+            <div class="answer" id="q-5-3"> <input type="radio" name="q-5" id="5-3" />Пушкину</div>
+        </div>
+    </div>
+    <button class="btn" id="btn-check" onclick="check_answers()">Проверить</button>
+    <button class="btn" id="btn-restart" onclick="restart_game()">С начала</button>
+    <div class="result">Ваш резульат </div>
+    <script src="js-test.js"></script>
+</body>
+</html>

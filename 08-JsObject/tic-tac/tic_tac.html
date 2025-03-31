@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css-tic-tac.css" />
+    <title></title>
+</head>
+<body>
+    <div class="game">
+        <div class="player">
+            <span>Сейчас ходит <span id="cur_player"></span></span>
+        </div>
+        <div id="area"></div>
+        <div class="statistic">
+            <table>
+                <thead colspan="2">Статистика</thead>
+                <tr>
+                    <td>X</td>
+                    <td><span id="s_x">0</span></td>
+                </tr>
+                <tr>
+                    <td>O</td>
+                    <td><span id="s_o">0</span></td>
+                </tr>
+                <tr>
+                    <td>Ничья</td>
+                    <td><span id="s_d">0</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="js-tic-tac.js"></script>
+</body>
+</html>
